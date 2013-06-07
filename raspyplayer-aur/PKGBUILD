@@ -1,0 +1,34 @@
+# Maintainer: Julien Pecqueur (JPEC) <jpec[at]julienpecqueur[dot]net>
+pkgname=raspyplayer
+pkgver=2.4
+pkgrel=4
+pkgdesc="A simple media player originally designed for the Raspberry Pi."
+url="http://raspyplayer.org"
+arch=('any')
+license=('GPL')
+depends=('python' 'tk' 'xterm' 'xdg-utils')
+optdepends=('mplayer' 'omxplayer')
+makedepends=('git')
+md5sums=('SKIP')
+source=("git://github.com/jpec/RasPyPlayer.git#branch=master")
+_gitname="RasPyPlayer"
+
+pkgver() {
+  cd "$_gitname"
+  echo $(git describe --tags | sed 's|-|.|g')
+  # for git, if the repo has no tags, comment out the above and uncomment the next line:
+  #echo "$(git shortlog | grep -c '\s\+').$(git describe --always)"
+  # This will give you a count of the total commits and the hash of the commit you are on.
+  # Useful if you're making a repository with git packages so that they can have sequential
+  # version numbers. (Else a pacman -Syu may not update the package)
+}
+ 
+package() {
+  cd "$_gitname"
+  # install files
+  install -Dm755 RasPyPlayer.py "$pkgdir/usr/bin/raspyplayer"
+  install -Dm644 raspyplayer.desktop "$pkgdir/usr/share/applications/raspyplayer.desktop"
+  install -Dm644 raspyplayer.png "$pkgdir/usr/share/pixmaps/raspyplayer.png"
+}
+
+# vim:set ts=2 sw=2 et:
