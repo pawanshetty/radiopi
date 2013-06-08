@@ -1,23 +1,12 @@
-RasPyPlayer
+RadioPi
 ===========
 
-A simple media player for the Raspberry Pi, written in Python 3 and using the omxplayer backend.
+A simple media player for the Raspberry Pi for streaming audio as FM , written in Python 3 for raspbian.
 
-http://raspyplayer.org
+This has been done by hacking the RasPyPlayer to accomodate the FM streaming capabilities
 
-Installation (Raspbian)
------------------------
+http://radiopi.in
 
-Download the Raspbian package on this page (raspyplayer.deb) and save it on your Pi. 
-
-Use the following command to install RasPyPlayer:
-
-    sudo dpkg -i raspyplayer.deb
-
-Installation (Archlinux)
-------------------------
-
-You can install RasPyPlayer via AUR.
 
 Mount SMB Folder at /media/nas
 --------------------------------
@@ -29,11 +18,16 @@ Add the following line in your /etc/rc.local:
 First launch of RasPyPlayer
 ---------------------------
 
-You can find the RasPyPlayer program in the menu. You need to click on "Scan" to refresh you movies database. 
+You need to install python3 
 
-You can also launch it from command line:
+sudo apt-get install python3
+sudo apt-get install python-dev
+sudo apt-get install pythonTk
+to run it
+Python3 RasPyPlayer 
 
-    raspyplayer
+As of now we can stream only wav files in 16bit format
+
 
 
 
