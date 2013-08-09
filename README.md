@@ -15,7 +15,7 @@ Add the following line in your /etc/rc.local:
 
     mount -t cifs //nashostname/nasvolume/ -o username=<smb username>,password=<smb password> /media/nas -o iocharset=utf8
 
-First launch of RasPyPlayer
+First launch of Radio-Pi
 ---------------------------
 
 You need to install python3 
